@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
             {
                 Spawn();
                 t = 0;
-                secondsBetweenSpawns *= 0.95f;
+                secondsBetweenSpawns *= 0.98f;
             }
         }
 
