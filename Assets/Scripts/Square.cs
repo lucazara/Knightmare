@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Square : MonoBehaviour
@@ -35,10 +33,7 @@ public class Square : MonoBehaviour
             var touchPosition = new Vector2(wp.x, wp.y);
 
             if (col == Physics2D.OverlapPoint(touchPosition))
-            {
-                Debug.Log("HIT!");
-                Debug.Log(x);
-                Debug.Log(y);
+            { 
 
                 knight.GetComponent<Knight>().MoveTo(x, y);
             }
