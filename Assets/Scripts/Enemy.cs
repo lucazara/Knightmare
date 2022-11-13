@@ -58,4 +58,13 @@ public class Enemy : MonoBehaviour
     }
 
 
+    public void Trigger(Vector3 dir)
+    {
+        triggered = true;
+        direction = dir;
+
+        GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        GetComponent<AudioSource>().Play();
+    }
+
 }

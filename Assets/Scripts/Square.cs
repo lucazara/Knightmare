@@ -7,6 +7,7 @@ public class Square : MonoBehaviour
     private Collider2D col;
 
     public GameObject knight;
+    public GameObject cam;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Square : MonoBehaviour
     void Update()
     {
         CheckForTouch();
+        if (cam.transform.position.y > y * 0.8f + 10) Destroy(gameObject);
     }
 
     bool CheckForTouch()

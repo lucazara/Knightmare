@@ -11,6 +11,9 @@ public class CoinSpawner : MonoBehaviour
     public GameObject cam;
     public GameObject spawner;
 
+    public GameObject darkCoinLabel;
+    public GameObject lightCoinLabel;
+
     public float scale;
 
     private void Start()
@@ -52,8 +55,13 @@ public class CoinSpawner : MonoBehaviour
         int r = Random.Range(0, coins.Length);
         Vector3 pos = new(x * scale, y * scale, -1);
         GameObject coin = Instantiate(coins[r], pos, Quaternion.identity, transform);
-        coin.GetComponent<Coin>().x = x;
-        coin.GetComponent<Coin>().y = y;
+        Coin c = coin.GetComponent<Coin>();
+        c.x = x;
+        c.y = y;
+        c.knight = knight;
+        c.darkCoinLabel = darkCoinLabel;
+        c.lightCoinLabel = lightCoinLabel;
+
     }
 
     private bool GoodPosition(int x, int y)

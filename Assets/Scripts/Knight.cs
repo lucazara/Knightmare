@@ -30,9 +30,9 @@ public class Knight : MonoBehaviour
     {
         t += Time.deltaTime;
 
-        if (t > 0.01f)
+        if (t > 0.001f)
         {
-            transform.position += (targetPosition - transform.position) * 0.2f;
+            transform.position += (targetPosition - transform.position) * 0.03f;
             t = 0;
         }
 
@@ -78,53 +78,42 @@ public class Knight : MonoBehaviour
                 {
                     case "rook":
                         if (e.x == x)
-                        {
-                            e.triggered = true;
-                            e.direction = Vector3.up * ((y > e.y) ? 1 : -1);
-                        }
+                            e.Trigger(Vector3.up*((y > e.y) ? 1 : -1));
+                        
                         if (e.y == y)
-                        {
-                            e.triggered = true;
-                            e.direction = Vector3.right * ((x > e.x) ? 1 : -1);
-                        }
+                            e.Trigger(Vector3.right * ((x > e.x) ? 1 : -1));
+                        
 
                         break;
                     case "bishop":
 
                         if (e.x + e.y == x + y)
                         {
-                            e.triggered = true;
-                            e.direction = (Vector3.up + Vector3.left).normalized * ((y > e.y) ? 1 : -1);
+                            e.Trigger((Vector3.up + Vector3.left).normalized * ((y > e.y) ? 1 : -1));
                         }
                         if (e.x - e.y == x - y)
                         {
-                            e.triggered = true;
-                            e.direction = (Vector3.up + Vector3.right).normalized * ((y > e.y) ? 1 : -1);
+                            e.Trigger((Vector3.up + Vector3.right).normalized * ((y > e.y) ? 1 : -1));
                         }
-
 
                         break;
                     case "queen":
 
                         if (e.x == x)
                         {
-                            e.triggered = true;
-                            e.direction = Vector3.up * ((y > e.y) ? 1 : -1);
+                            e.Trigger(Vector3.up * ((y > e.y) ? 1 : -1));
                         }
                         if (e.y == y)
                         {
-                            e.triggered = true;
-                            e.direction = Vector3.right * ((x > e.x) ? 1 : -1);
+                            e.Trigger(Vector3.right * ((x > e.x) ? 1 : -1));
                         }
                         if(e.x + e.y == x + y)
                         {
-                            e.triggered = true;
-                            e.direction = (Vector3.up + Vector3.left).normalized * ((y > e.y) ? 1 : -1);
+                            e.Trigger((Vector3.up + Vector3.left).normalized * ((y > e.y) ? 1 : -1));
                         }
                         if (e.x - e.y == x - y)
                         {
-                            e.triggered = true;
-                            e.direction = (Vector3.up + Vector3.right).normalized * ((y > e.y) ? 1 : -1);
+                            e.Trigger((Vector3.up + Vector3.right).normalized * ((y > e.y) ? 1 : -1));
                         }
 
 
@@ -134,7 +123,7 @@ public class Knight : MonoBehaviour
 
             if (Vector3.Distance(transform.position, enemy.transform.position) < 0.5 || Vector2.Distance(transform.position, cam.transform.position) > 6)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
                 SceneManager.LoadScene(0);
             }
         }

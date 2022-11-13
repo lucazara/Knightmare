@@ -98,3 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 250
+  x: 0
+  y: 0
+  knight: {fileID: 0}
+  darkCoinLabel: {fileID: 0}
+  lightCoinLabel: {fileID: 0}
+  type: light
