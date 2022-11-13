@@ -9,6 +9,7 @@ public class CoinSpawner : MonoBehaviour
     public GameObject[] coins;
 
     public GameObject cam;
+    public GameObject spawner;
 
     public float scale;
 
@@ -39,16 +40,35 @@ public class CoinSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        int x = Random.Range(-2, 3);
-        int y = knight.GetComponent<Knight>().y + Random.Range(10, 16);
-        Vector3 pos = new(x * scale, y * scale, -1);
+        int x, y;
+        do
+        {
+            x = Random.Range(-2, 3);
+            y = knight.GetComponent<Knight>().y + Random.Range(10, 16);
+        } while (!GoodPosition(x, y));
 
-        GameObject coin;
+
 
         int r = Random.Range(0, coins.Length);
-
-        coin = Instantiate(coins[r], pos, Quaternion.identity, transform);
+        Vector3 pos = new(x * scale, y * scale, -1);
+        GameObject coin = Instantiate(coins[r], pos, Quaternion.identity, transform);
         coin.GetComponent<Coin>().x = x;
         coin.GetComponent<Coin>().y = y;
+    }
+
+    private bool GoodPosition(int x, int y)
+    {
+        for (int i = 0; i < spawner.transform.childCount; i++)
+        {
+            Enemy e = spawner.transform.GetChild(i).gameObject.GetComponent<Enemy>();
+            if (Vector2.Distance(new Vector2(x, y), new Vector2(e.x, e.y)) < 1.5f) return false;
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Coin c = transform.GetChild(i).gameObject.GetComponent<Coin>();
+            if (c.x == x && c.y == y) return false;
+        }
+        return true;
     }
 }

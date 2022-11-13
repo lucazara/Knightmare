@@ -256,8 +256,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160
-  m_fontSizeBase: 160
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1115,6 +1115,7 @@ MonoBehaviour:
   - {fileID: 491005176995413966, guid: b10d2d599929a4162955e3ccd09ef382, type: 3}
   - {fileID: 5755561549417381121, guid: e862a2d6f15a541d08d5f49274487754, type: 3}
   cam: {fileID: 519420028}
+  coinSpawner: {fileID: 1785362755}
   scale: 0.8
 --- !u!4 &1470405728
 Transform:
@@ -1337,6 +1338,7 @@ MonoBehaviour:
   - {fileID: 6304622321200465976, guid: c4f61495ab19340448e247df8363ec45, type: 3}
   - {fileID: 7752543057967559912, guid: 5b03b1eee22784209a87260ef3e6ddc0, type: 3}
   cam: {fileID: 519420028}
+  spawner: {fileID: 1470405726}
   scale: 0.8
 --- !u!1 &1867844018
 GameObject:

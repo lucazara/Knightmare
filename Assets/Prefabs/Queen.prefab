@@ -103,7 +103,8 @@ MonoBehaviour:
   maxSpeed: 4
   speed: 0
   acceleration: 2
-  lifeTime: 6
+  lifeTime: 4
+  freq: 0.2
   type: queen
   x: 0
   y: 0

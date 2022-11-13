@@ -103,7 +103,8 @@ MonoBehaviour:
   maxSpeed: 3
   speed: 0
   acceleration: 0.8
-  lifeTime: 5
+  lifeTime: 4
+  freq: 0.4
   type: bishop
   x: 0
   y: 0

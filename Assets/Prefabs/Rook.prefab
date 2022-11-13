@@ -103,7 +103,8 @@ MonoBehaviour:
   maxSpeed: 2
   speed: 0
   acceleration: 1.5
-  lifeTime: 5
+  lifeTime: 4
+  freq: 0.4
   type: rook
   x: 0
   y: 0

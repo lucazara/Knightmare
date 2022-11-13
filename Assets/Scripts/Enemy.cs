@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public float lifeTime;
 
+    public float freq;
+
     public string type;
 
     public int x, y;
