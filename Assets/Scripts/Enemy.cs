@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour
     public bool triggered;
 
     public Vector3 direction;
+    public float initialSpeed;
+    public float maxSpeed;
     public float speed;
     public float acceleration;
 
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
     {
         triggered = false;
         t = 0;
+        speed = initialSpeed;
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class Enemy : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.red;
 
             transform.position += speed * Time.deltaTime * direction;
+            speed += acceleration * Time.deltaTime;
+            speed = Mathf.Min(speed, maxSpeed);
 
             switch (type)
             {

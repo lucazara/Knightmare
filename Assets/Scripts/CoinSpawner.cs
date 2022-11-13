@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     private float t;
     public float secondsBetweenSpawns;
 
     public GameObject knight;
-    public GameObject[] pieces;
-
+    public GameObject[] coins;
 
     public GameObject cam;
 
@@ -16,12 +15,12 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         t = 0;
-        
+
     }
 
     private void Update()
     {
-        
+
         if (cam.GetComponent<CameraMovement>().started)
         {
             t += Time.deltaTime;
@@ -34,22 +33,22 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        
+
 
     }
 
     private void Spawn()
     {
         int x = Random.Range(-2, 3);
-        int y = knight.GetComponent<Knight>().y + Random.Range(5, 7);
+        int y = knight.GetComponent<Knight>().y + Random.Range(10, 16);
         Vector3 pos = new(x * scale, y * scale, -1);
 
-        GameObject enemy;
+        GameObject coin;
 
-        int r = Random.Range(0, pieces.Length);
+        int r = Random.Range(0, coins.Length);
 
-        enemy = Instantiate(pieces[r], pos, Quaternion.identity, transform);
-        enemy.GetComponent<Enemy>().x = x;
-        enemy.GetComponent<Enemy>().y = y;
+        coin = Instantiate(coins[r], pos, Quaternion.identity, transform);
+        coin.GetComponent<Coin>().x = x;
+        coin.GetComponent<Coin>().y = y;
     }
 }

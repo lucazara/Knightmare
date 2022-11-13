@@ -105,6 +105,29 @@ public class Knight : MonoBehaviour
 
                         break;
                     case "queen":
+
+                        if (e.x == x)
+                        {
+                            e.triggered = true;
+                            e.direction = Vector3.up * ((y > e.y) ? 1 : -1);
+                        }
+                        if (e.y == y)
+                        {
+                            e.triggered = true;
+                            e.direction = Vector3.right * ((x > e.x) ? 1 : -1);
+                        }
+                        if(e.x + e.y == x + y)
+                        {
+                            e.triggered = true;
+                            e.direction = (Vector3.up + Vector3.left).normalized * ((y > e.y) ? 1 : -1);
+                        }
+                        if (e.x - e.y == x - y)
+                        {
+                            e.triggered = true;
+                            e.direction = (Vector3.up + Vector3.right).normalized * ((y > e.y) ? 1 : -1);
+                        }
+
+
                         break;
                 }
             }
