@@ -128,7 +128,6 @@ public class Knight : MonoBehaviour
 
             if (Vector3.Distance(transform.position, enemy.transform.position) < 0.5 || Vector2.Distance(transform.position, cam.transform.position) > 6)
             {
-                //Destroy(gameObject);
                 SceneManager.LoadScene(0);
             }
         }
