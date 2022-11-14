@@ -39,14 +39,19 @@ public class Knight : MonoBehaviour
         CheckTriggered();
     }
 
+    public bool IsReachable(int cx, int cy)
+    {
+        int dx = Mathf.Abs(x - cx);
+        int dy = Mathf.Abs(y - cy);
+
+        return (dx == 2 && dy == 1 || dx == 1 && dy == 2);
+    }
+
     public void MoveTo(int cx, int cy)
     {
         if (!cam.GetComponent<CameraMovement>().started) return;
 
-        int dx = Mathf.Abs(x - cx);
-        int dy = Mathf.Abs(y - cy);
-
-        if (dx == 2 && dy == 1 || dx == 1 && dy == 2)
+        if (IsReachable(cx, cy))
         {
             x = cx;
             y = cy;

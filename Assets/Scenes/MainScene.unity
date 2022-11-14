@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 0.8
-  maxSpeed: 2.4
+  maxSpeed: 2.3
   incrementSpeed: 0.04
   speed: 0
   started: 0
