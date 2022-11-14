@@ -746,6 +746,7 @@ MonoBehaviour:
   y: 0
   scale: 0.8
   t: 0
+  moveSpeed: 8
   cam: {fileID: 519420028}
   spawner: {fileID: 1470405726}
 --- !u!1 &443349784

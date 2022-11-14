@@ -11,6 +11,8 @@ public class Knight : MonoBehaviour
 
     public float t;
 
+    public float moveSpeed;
+
     private Vector3 targetPosition;
 
     public GameObject cam;
@@ -23,18 +25,24 @@ public class Knight : MonoBehaviour
         x = 0;
         y = -3;
 
-        t = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Vector2.Distance(targetPosition, transform.position) > 0.2f)
+        {
+            transform.Translate((targetPosition - transform.position).normalized * moveSpeed * Time.fixedDeltaTime);
+        }
+        else if (transform.position != targetPosition)
+        {
+            transform.position = targetPosition;
+        }
     }
 
     void Update()
     {
-        t += Time.deltaTime;
+        
 
-        if (t > 0.001f)
-        {
-            transform.position += (targetPosition - transform.position) * 0.03f;
-            t = 0;
-        }
 
         CheckTriggered();
     }
